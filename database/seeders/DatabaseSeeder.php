@@ -15,12 +15,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            Userseeder::class,
-            Cafeseeder::class,
-            Areaseeder::class,
-            Commentseeder::class,
-            Menuseeder::class,
-            Reviewseeder::class,
+            AreaSeeder::class,
+            CafeSeeder::class,
+            UserSeeder::class,
+            MenuSeeder::class,
             ]);
         // \App\Models\User::factory(10)->create();
 
