@@ -5,9 +5,11 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 use DataTime;
 
-class Userseeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,10 +20,11 @@ class Userseeder extends Seeder
   
     {
         DB::table('users')->insert([
-            'name'=>Str::random(10),
-            'email'=>Str::random(10).'@yaoo.co.jp',
+            'cafe_id' => 1,
+            'name' => Str::random(10),
+            'email'=> 'test@yaoo.co.jp',
             'age'=>'25',
-            'sex'=>'男',
+            'sex'=> 0,
             'image'=>'no image',
             'password'=> Hash::make("yoshidatoshiki")
             ]);

@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('cafes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('area_id')->constrained('areas');
+            $table->string('name');
             $table->string('address');
             $table->text('access');
             $table->text('image');
