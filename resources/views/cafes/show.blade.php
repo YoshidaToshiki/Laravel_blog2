@@ -1,33 +1,16 @@
-<!DOCTYPE HTML>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Posts</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    </head>
-    <body>
-        <h1 class="title">
-            {{ $post->title }}
-        </h1>
-        <a href="">{{ $post->category->name }}</a>
-        <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
-        <div class="content">
-            <div class="content__post">
-                <h3>本文</h3>
-                <p>{{ $post->body }}</p>    
+<x-app-layout>
+    <h1 class="name">
+        {{ $cafe->name }}
+    </h1>
+    <div class="menus">
+        @foreach($menus as $menu)
+            <div class='menu'>
+                <p class='name'>{{ $menu->name }}</p>
+                <p class='body'>{{ $menu->body }}</p>
             </div>
-        </div>
-        <div class="edit"><a href="/posts/{{ $post->id }}/edit">edit</a></div>
-        <div class="footer">
-            <a href="/">戻る</a>
-        </div>
-        <x-app-layout>
-           <x-slot name="header">
-        　   (show)
-            </x-slot>
-              (各ブレードファイルの中身)
-        </x-app-layout>
-    </body>
-</html>
+        @endforeach
+    </div>
+    <div class="footer">
+        <a href="/">戻る</a>
+    </div>
+</x-app-layout>

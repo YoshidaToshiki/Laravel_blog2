@@ -23,7 +23,7 @@ class CafeSeeder extends Seeder
             'access'=>'佐和駅から車で10分',
             'image'=>'',
             'breadth'=>30,
-            'management_flg'=>'1',
+            'management_flg'=>'1'
             ],
             [
             'area_id' => 2,

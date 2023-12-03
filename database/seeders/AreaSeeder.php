@@ -30,8 +30,7 @@ class AreaSeeder extends Seeder
             ],
             [
              'area_name'=>'茨城県東エリア'   
-            ],
-             ]);
-      //
+            ]
+            ]);
     }
 }

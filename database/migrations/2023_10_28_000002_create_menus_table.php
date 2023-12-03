@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('cafe_id')->constrained('cafes');
+            $table->foreignId('cafe_id')->constrained();
+            $table->string('name');
             $table->text('body');
             $table->text('image');
             $table->tinyInteger('recommends');
