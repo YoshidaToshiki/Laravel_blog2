@@ -10,6 +10,9 @@
             </div>
         @endforeach
     </div>
+    <div>
+        <a href='/cafes/{{$cafe->id}}/reviews/create'>レビュー投稿へ</a>
+    </div>
     <div class="footer">
         <a href="/">戻る</a>
     </div>

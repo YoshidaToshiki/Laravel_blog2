@@ -11,4 +11,12 @@ class Review extends Model
     use HasFactory;
     use SoftDeletes;
     
+    //$fillableを定義することでfillが可能なプロパティを指定する。
+    protected $fillable = [
+        'user_id',
+        'cafe_id',
+        'title',
+        'body',
+        'stars'
+    ];
 }
