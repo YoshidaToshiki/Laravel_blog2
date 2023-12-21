@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\CafeRequest;
 use App\Models\Review;
@@ -9,29 +10,30 @@ use App\Models\Cafe;
 
 class ReviewController extends Controller
 {
+    
+    // 作成画面表示
     public function create(Cafe $cafe)
     {
-        return view('cafes.create')->with([
+        return view('reviews.create')->with([
             'cafe' =>$cafe
-            ]);
+        ]);
     }
     
-    public function store(CafeRequest $request, Review $review, Cafe $cafe)
+    // 登録処理
+    public function store(CafeRequest $request, Cafe $cafe, Review $review)
     {
-        $validated = $request ->validate([
-            'review.title' => 'required|string|max:100',
-            'review.body' => 'required|string|max:4000',
-            'review.stars' => 'required'
-            ]);
-        // $request['review']で、reviewをキーにもつリクエストパラメータを取得
-        // $requestのキーは、各入力項目のname属性（create.blade）と一致
-        // $input = ['title'=>タイトル,'body'=>レビュー内容,'stars'=>評価]の配列型式となる。
+        // 画面からデータを取得
         $input = $request['review'];
-        // 保存処理：Reviewインスタンスのプロパティを指定（fill関数）して、
-        // 受け取ったキーごとに上書き（save関数）する。
+        // 評価対象のカフェ
+        $input['cafe_id'] = $cafe->id;
+        // ログインしているユーザ
+        $input['user_id'] = Auth::id();
+        
+        // 保存処理
         $review->fill($input)->save();
-        // 保存したcafeのidを含んだURLにリダイレクト
-        return redirect('/cafes/{cafe}' . $review->id);
+        
+        // カフェ詳細画面の下部にレビューを表示している場合は、カフェの詳細画面に遷移するべき
+        return redirect('/cafes/' . $cafe->id );
     }
     
     

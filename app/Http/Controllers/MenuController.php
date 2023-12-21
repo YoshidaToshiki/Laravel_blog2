@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CafeRequest;
 use App\Models\Cafe;
 use App\Models\Menu;
+use App\Models\Review;
 
 class MenuController extends Controller
 {
@@ -15,12 +17,13 @@ class MenuController extends Controller
     //     ]);
     // }
     
-    public function show( Menu $menus,Cafe $cafe)
-    {
-        return view('cafes.show')->with([
-            'menus' => $cafe->getByMenu(),
-            'cafe'  => $cafe
-            ]);
-    }
-    
+    // public function show( Menu $menus, Cafe $cafe, Review $reviews )
+    // {
+    //     return view('cafes.show')->with([
+    //         'menus' => $cafe->getByMenu(),
+    //         'reviews' => $cafe->getByReview(),
+    //         'cafe'  => $cafe
+    //     ]);
+    // }
+
 }

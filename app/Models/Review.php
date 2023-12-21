@@ -19,4 +19,9 @@ class Review extends Model
         'body',
         'stars'
     ];
+    
+    public function cafe()
+    {
+        return $this->belongsTo(Cafe::class);
+    }
 }

@@ -5,7 +5,7 @@
         <!--action属性：リクエストを送信するURIを定義する。-->
         <!--method属性：HTTPリクエストのメソッドを指定する。
         　　REVIEWメソッド：-->
-        <form action="/cafes/{{$cafe ->id}}" method="REVIEW">
+        <form action="/cafes/{{$cafe ->id}}" method="POST">
             <!--CSRFトークンフィールド（クロス・サイト・リクエスト・フォージェリ）
             　　：セキュリティの脅威からアプリケーションを守るために、CSRFトークンを発行し、
             　　　そのトークン情報をリクエスト時に一緒に送信することで、リクエストを検証する。
