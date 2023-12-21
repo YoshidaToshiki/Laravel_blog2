@@ -11,7 +11,7 @@ class Menu extends Model
     
     public function cafe()   
     {
-    return $this->belongsTo(Cafe::class);  
+        return $this->belongsTo(Cafe::class);  
     }
-    
+
 }

@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('title');
             $table->text('body');
             $table->tinyInteger('stars');
-            $table->smallInteger('amount');
             $table->timestamps();
             $table->softDeletes();
         });

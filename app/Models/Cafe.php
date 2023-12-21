@@ -9,10 +9,10 @@ class Cafe extends Model
 {
     use HasFactory;
     
-    protected $fillable = [
-        'name',
-        'menu_id'
-    ];
+    public function area()   
+    {
+        return $this->belongsTo(Area::class);  
+    }
     
     public function getPaginateByLimit(int $limit_count = 10)
     {
@@ -29,4 +29,15 @@ class Cafe extends Model
     {
         return $this->menus()->with('cafe')->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
+    
+    public function reviews()   
+    {
+        return $this->hasMany(Review::class);  
+    }
+    
+    public function getByReview(int $limit_count = 10)
+    {
+        return $this->reviews()->with('cafe')->orderBy('updated_at', 'DESC')->paginate($limit_count);
+    }
+    
 }

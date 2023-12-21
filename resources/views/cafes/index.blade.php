@@ -18,6 +18,15 @@
             </div>
         @endforeach
     </div>
+     <div class='areas'>
+        @foreach ($cafes as $cafe)
+            <div class='area'>
+                <h2 class='name'>
+                  <a href="/areas/{{ $cafe->area_id }}">{{$cafe->area_id}}</a>
+                </h2>
+            </div>
+        @endforeach
+    </div>
     <div class='paginate'>
         {{ $cafes->links() }}
     </div>
