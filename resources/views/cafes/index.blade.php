@@ -1,31 +1,31 @@
 <x-app-layout>
-    <h1>Blog Name</h1>
-    
-    <div class='cafes'>
+    <div class='cafes space-y-8 max-w-6xl mx-auto p-4'>
         @foreach ($cafes as $cafe)
-            <div class='cafe'>
-                <h2 class='name'>
-                  <a href="/cafes/{{ $cafe->id }}">{{ $cafe->name }}</a>
-                </h2>
-                <h2 class='area'>
-                  <a href="/areas/{{ $cafe->area_id }}">{{ $cafe->area->area_name }}</a>
-                </h2>
-                <p class='address'>{{ $cafe->address }}</p>
-                <p class='access'>{{ $cafe->access }}</p>
-                <p class='image'>{{ $cafe->image }}</p>
-                <p class='breadth'>{{ $cafe->breadth }}</p>
-                <p class='management_flg'>{{ $cafe ->management_flg }}</p>
-                <p class='create_at'>{{ $cafe->create_at }}</p>
-                <p class='updated_at'>{{ $cafe->updated_at }}</p>
+            <div class='cafe bg-white rounded-lg shadow-lg p-6 mb-4'>
+                <div class='flex flex-col md:flex-row'>
+                    <!--<img class='w-full md:w-48 h-48 object-cover rounded-lg mb-4' src="{{ $cafe->image }}" alt="{{ $cafe->name }}">-->
+                    <div class='md:ml-6'>
+                        <h2 class='name text-2xl font-semibold mt-2 md:mt-0 mb-2'>
+                          <a href="/cafes/{{ $cafe->id }}" class="text-coffee hover:text-coffee-dark">{{ $cafe->name }}</a>
+                        </h2>
+                        <h2 class='area text-sm text-gray-600 mb-2'>
+                          <a href="/areas/{{ $cafe->area_id }}">{{ $cafe->area->area_name }}</a>
+                        </h2>
+                        <p class='address text-gray-800 mt-2 mb-1'>{{ $cafe->address }}</p>
+                        <p class='access text-gray-800 mb-1'>{{ $cafe->access }}</p>
+                        <p class='breadth text-gray-800 mb-1'>広さ: {{ $cafe->breadth }}m²</p>
+                    </div>
+                </div>
             </div>
         @endforeach
     </div>
-    <div class='paginate'>
+    <div class='paginate my-8 text-center'>
         {{ $cafes->links() }}
     </div>
     <script>
         'use strict'
-        function deletePost(id) {
+        function deletePost(e, id) {
+            e.preventDefault();
             if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
                 document.getElementById(`form_${id}`).submit();
             }
