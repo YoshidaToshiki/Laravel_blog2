@@ -7,7 +7,9 @@
                 <h2 class='name'>
                   <a href="/cafes/{{ $cafe->id }}">{{ $cafe->name }}</a>
                 </h2>
-                <p class='area_id'>{{ $cafe->area_id }}</p>
+                <h2 class='area'>
+                  <a href="/areas/{{ $cafe->area_id }}">{{ $cafe->area->area_name }}</a>
+                </h2>
                 <p class='address'>{{ $cafe->address }}</p>
                 <p class='access'>{{ $cafe->access }}</p>
                 <p class='image'>{{ $cafe->image }}</p>
@@ -15,15 +17,6 @@
                 <p class='management_flg'>{{ $cafe ->management_flg }}</p>
                 <p class='create_at'>{{ $cafe->create_at }}</p>
                 <p class='updated_at'>{{ $cafe->updated_at }}</p>
-            </div>
-        @endforeach
-    </div>
-     <div class='areas'>
-        @foreach ($cafes as $cafe)
-            <div class='area'>
-                <h2 class='name'>
-                  <a href="/areas/{{ $cafe->area_id }}">{{$cafe->area_id}}</a>
-                </h2>
             </div>
         @endforeach
     </div>
