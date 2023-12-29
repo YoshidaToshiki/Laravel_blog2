@@ -32,3 +32,14 @@
         }
     </script>
 </x-app-layout>
+<style>
+  .text-coffee {
+      color: #6f4e37;
+  }
+  .bg-coffee {
+      background-color: #6f4e37;
+  }
+  .bg-coffee-dark:hover {
+      background-color: #5a392b;
+  }
+</style>
