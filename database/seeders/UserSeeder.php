@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
   
     {
         DB::table('users')->insert([
-            'cafe_id' => 1,
+            // 'cafe_id' => 1,
             'name' => Str::random(10),
             'email'=> 'test@yaoo.co.jp',
             'age'=>'25',
