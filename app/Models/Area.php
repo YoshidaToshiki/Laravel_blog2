@@ -18,4 +18,5 @@ class Area extends Model
     {
         return $this->cafe()->with('area')->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
+    
 }

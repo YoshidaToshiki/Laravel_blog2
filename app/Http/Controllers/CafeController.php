@@ -27,7 +27,7 @@ class CafeController extends Controller
             'menus' => $cafe->getByMenu(),
             'reviews' => $cafe->getByReview(),
             'cafe'  => $cafe
-            ]);
+        ]);
     }
     
     // public function region(Cafe $cafe, Area $area)

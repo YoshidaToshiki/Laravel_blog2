@@ -10,7 +10,7 @@
             </div>
         @endforeach
     </div>
-    <div class="reviews">
+    <div class="review">
         @foreach($reviews as $review)
             <div class='review'>
                 <p class='title'>{{ $review->title }}</p>
