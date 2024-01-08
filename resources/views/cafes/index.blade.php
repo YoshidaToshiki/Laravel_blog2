@@ -22,4 +22,24 @@
     <div class='paginate my-8 text-center'>
         {{ $cafes->links() }}
     </div>
+    <script>
+        'use strict'
+        function deletePost(e, id) {
+            e.preventDefault();
+            if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+                document.getElementById(`form_${id}`).submit();
+            }
+        }
+    </script>
 </x-app-layout>
+<style>
+  .text-coffee {
+      color: #6f4e37;
+  }
+  .bg-coffee {
+      background-color: #6f4e37;
+  }
+  .bg-coffee-dark:hover {
+      background-color: #5a392b;
+  }
+</style>
