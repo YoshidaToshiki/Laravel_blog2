@@ -22,6 +22,7 @@
     <div class='paginate my-8 text-center'>
         {{ $cafes->links() }}
     </div>
+    
     <script>
         'use strict'
         function deletePost(e, id) {
