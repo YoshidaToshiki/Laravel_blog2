@@ -22,6 +22,13 @@
             <div class='review bg-white rounded-lg shadow-md p-4 mb-4'>
                 <p class='title font-medium text-lg'>{{ $review->title }}</p>
                 <p class='title font-medium text-lg'>★{{ $review->stars }}</p>
+                <a href="/cafes/{{$cafe->id}}/{{ $review->id }}/edit" class='title font-medium text-lg'>編集</a>
+                <form action="/cafes/{{$cafe->id}}/{{ $review->id }}" id="form_{{ $review->id }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="button" onclick="deleteReview({{ $review->id }})"
+                        class='title font-medium text-lg'>削除</button> 
+                </form>
             </div>
         @endforeach
     </div>
@@ -37,6 +44,16 @@
     <div class="footer text-center py-4">
         <a href="/" class="text-coffee hover:underline">戻る</a>
     </div>
+    
+    <script>
+    function deleteReview(id) {
+        'use strict'
+
+        if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+            document.getElementById(`form_${id}`).submit();
+        }
+    }
+    </script>
 </x-app-layout>
 
 <style>
