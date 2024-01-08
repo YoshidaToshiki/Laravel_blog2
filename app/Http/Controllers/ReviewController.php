@@ -36,5 +36,28 @@ class ReviewController extends Controller
         return redirect('/cafes/' . $cafe->id );
     }
     
+    public function edit(Cafe $cafe,Review $review)
+    {
+    return view('reviews.edit')->with([
+        'review' => $review,
+        'cafe' => $cafe
+        ]);
+    }
     
+    public function update(CafeRequest $request, Cafe $cafe, Review $review)
+    {
+        $input_review = $request['review'];
+        $input_review['cafe_id'] = $cafe->id;
+        $input_review['user_id'] = Auth::id();
+        $review->fill($input_review)->save();
+
+        return redirect('/cafes/' . $cafe->id);
+    }
+    
+    public function delete(Cafe $cafe,Review $review)
+{
+    
+    $review->delete();
+    return redirect('/cafes/' . $cafe->id);
+}
 }
